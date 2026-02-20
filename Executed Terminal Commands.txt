@@ -1,0 +1,156 @@
+bash: /home/pathik-singh/.openclaw/completions/openclaw.bash: No such file or directory
+pathik-singh@pathik-singh-LOQ-15IAX9:~$ cd Downloads/project_workspace
+pathik-singh@pathik-singh-LOQ-15IAX9:~/Downloads/project_workspace$ pwd
+/home/pathik-singh/Downloads/project_workspace
+pathik-singh@pathik-singh-LOQ-15IAX9:~/Downloads/project_workspace$ ls -a
+.  ..  data  logs  messages  README.txt  reports  temp  users
+pathik-singh@pathik-singh-LOQ-15IAX9:~/Downloads/project_workspace$ du -h *
+1.1M	data
+16K	logs
+16K	messages
+4.0K	README.txt
+12K	reports
+8.0K	temp
+8.0K	users
+pathik-singh@pathik-singh-LOQ-15IAX9:~/Downloads/project_workspace$ find . -type f
+./messages/message_part_02.txt
+./messages/message_part_03.txt
+./messages/message_part_01.txt
+./reports/report_old.txt
+./reports/draft.txt
+./logs/old.log
+./logs/access.log
+./logs/system.log
+./temp/empty2.txt
+./temp/unused.tmp
+./temp/empty1.txt
+./README.txt
+./data/sample.txt
+./data/large_data.bin
+./users/new_users.txt
+./users/duplicate_users.txt
+./users/users.txt
+pathik-singh@pathik-singh-LOQ-15IAX9:~/Downloads/project_workspace$ cd users
+pathik-singh@pathik-singh-LOQ-15IAX9:~/Downloads/project_workspace/users$ sort users.txt
+Archishman
+Keshav
+Krishna
+Krishna
+Mehak
+Mehak
+Murli
+Prince
+Prince
+Rimmi
+Tarunesh
+pathik-singh@pathik-singh-LOQ-15IAX9:~/Downloads/project_workspace/users$ sort users.txt | uniq > unique_users.txt
+pathik-singh@pathik-singh-LOQ-15IAX9:~/Downloads/project_workspace/users$ sort users.txt | uniq -d > duplicate_users.txt
+pathik-singh@pathik-singh-LOQ-15IAX9:~/Downloads/project_workspace/users$ rev users.txt > reversed_users.txt
+pathik-singh@pathik-singh-LOQ-15IAX9:~/Downloads/project_workspace/users$ cd ..
+pathik-singh@pathik-singh-LOQ-15IAX9:~/Downloads/project_workspace$ grep "ERROR" logs/system.log > logs/errors_only.txt
+pathik-singh@pathik-singh-LOQ-15IAX9:~/Downloads/project_workspace$ wc -l logs/errors_only.txt
+3 logs/errors_only.txt
+pathik-singh@pathik-singh-LOQ-15IAX9:~/Downloads/project_workspace$ grep "login failed" logs/access.log > logs/failed_logins.txt
+pathik-singh@pathik-singh-LOQ-15IAX9:~/Downloads/project_workspace$ sort logs/system.log > logs/sorted_system.log
+pathik-singh@pathik-singh-LOQ-15IAX9:~/Downloads/project_workspace$ cat logs/errors_only.txt logs/failed_logins.txt > error_report.txt
+pathik-singh@pathik-singh-LOQ-15IAX9:~/Downloads/project_workspace$ mkdir processed
+pathik-singh@pathik-singh-LOQ-15IAX9:~/Downloads/project_workspace$ cat messages/message_part_01.txt messages/message_part_02.txt messages/message_part_03.txt > processed/final_message.txt
+pathik-singh@pathik-singh-LOQ-15IAX9:~/Downloads/project_workspace$ find temp -type f -size 0
+temp/empty2.txt
+temp/empty1.txt
+pathik-singh@pathik-singh-LOQ-15IAX9:~/Downloads/project_workspace$ find temp -type f -size 0 -exec rm {} \;
+pathik-singh@pathik-singh-LOQ-15IAX9:~/Downloads/project_workspace$ cat data/sample.txt
+linux operations practice file
+this file is used for counting and viewing
+pathik-singh@pathik-singh-LOQ-15IAX9:~/Downloads/project_workspace$ head -2 data/sample.txt
+linux operations practice file
+this file is used for counting and viewing
+pathik-singh@pathik-singh-LOQ-15IAX9:~/Downloads/project_workspace$ tail -1 data/sample.txt
+this file is used for counting and viewing
+pathik-singh@pathik-singh-LOQ-15IAX9:~/Downloads/project_workspace$ less data/sample.txt
+pathik-singh@pathik-singh-LOQ-15IAX9:~/Downloads/project_workspace$ ls temp
+unused.tmp
+pathik-singh@pathik-singh-LOQ-15IAX9:~/Downloads/project_workspace$ rm temp/unused.tmp
+pathik-singh@pathik-singh-LOQ-15IAX9:~/Downloads/project_workspace$ ls temp
+pathik-singh@pathik-singh-LOQ-15IAX9:~/Downloads/project_workspace$ wc data/sample.txt
+ 2 12 74 data/sample.txt
+pathik-singh@pathik-singh-LOQ-15IAX9:~/Downloads/project_workspace$ find . -name "*.txt"
+./messages/message_part_02.txt
+./messages/message_part_03.txt
+./messages/message_part_01.txt
+./processed/final_message.txt
+./reports/report_old.txt
+./reports/draft.txt
+./logs/failed_logins.txt
+./logs/errors_only.txt
+./error_report.txt
+./README.txt
+./data/sample.txt
+./users/reversed_users.txt
+./users/unique_users.txt
+./users/new_users.txt
+./users/duplicate_users.txt
+./users/users.txt
+pathik-singh@pathik-singh-LOQ-15IAX9:~/Downloads/project_workspace$ grep "ERROR" logs/*.log
+logs/sorted_system.log:ERROR disk failure
+logs/sorted_system.log:ERROR network unreachable
+logs/sorted_system.log:ERROR permission denied
+logs/system.log:ERROR disk failure
+logs/system.log:ERROR network unreachable
+logs/system.log:ERROR permission denied
+pathik-singh@pathik-singh-LOQ-15IAX9:~/Downloads/project_workspace$ grep "ERROR" logs/system.log
+ERROR disk failure
+ERROR network unreachable
+ERROR permission denied
+pathik-singh@pathik-singh-LOQ-15IAX9:~/Downloads/project_workspace$ grep "ERROR" logs/system.log > error_search_results.txt
+pathik-singh@pathik-singh-LOQ-15IAX9:~/Downloads/project_workspace$ du -h > statistics_report.txt
+pathik-singh@pathik-singh-LOQ-15IAX9:~/Downloads/project_workspace$ cat statistics_report.txt
+16K	./messages
+8.0K	./processed
+12K	./reports
+28K	./logs
+4.0K	./temp
+1.1M	./data
+20K	./users
+1.2M	.
+pathik-singh@pathik-singh-LOQ-15IAX9:~/Downloads/project_workspace$ echo "Workspace Cleaned Successfully" >> statistics_report.txt
+pathik-singh@pathik-singh-LOQ-15IAX9:~/Downloads/project_workspace$ cat statistics_report.txt
+16K	./messages
+8.0K	./processed
+12K	./reports
+28K	./logs
+4.0K	./temp
+1.1M	./data
+20K	./users
+1.2M	.
+Workspace Cleaned Successfully
+pathik-singh@pathik-singh-LOQ-15IAX9:~/Downloads/project_workspace$ echo "Final Verification Completed" | tee -a statistics_report.txt
+Final Verification Completed
+pathik-singh@pathik-singh-LOQ-15IAX9:~/Downloads/project_workspace$ cat statistics_report.txt
+16K	./messages
+8.0K	./processed
+12K	./reports
+28K	./logs
+4.0K	./temp
+1.1M	./data
+20K	./users
+1.2M	.
+Workspace Cleaned Successfully
+Final Verification Completed
+pathik-singh@pathik-singh-LOQ-15IAX9:~/Downloads/project_workspace$ mkdir deliverable
+pathik-singh@pathik-singh-LOQ-15IAX9:~/Downloads/project_workspace$ cp users/unique_users.txt deliverable/
+cp users/duplicate_users.txt deliverable/
+cp error_report.txt deliverable/
+cp processed/final_message.txt deliverable/
+cp statistics_report.txt deliverable/
+pathik-singh@pathik-singh-LOQ-15IAX9:~/Downloads/project_workspace$ ls deliverable
+duplicate_users.txt  error_report.txt  final_message.txt  statistics_report.txt  unique_users.txt
+pathik-singh@pathik-singh-LOQ-15IAX9:~/Downloads/project_workspace$ tar -cf final_submission.tar deliverable
+pathik-singh@pathik-singh-LOQ-15IAX9:~/Downloads/project_workspace$ ls
+data  deliverable  error_report.txt  error_search_results.txt  final_submission.tar  logs  messages  processed  README.txt  reports  statistics_report.txt  temp  users
+pathik-singh@pathik-singh-LOQ-15IAX9:~/Downloads/project_workspace$ tar -cf final_submission.tar deliverable
+ls
+data  deliverable  error_report.txt  error_search_results.txt  final_submission.tar  logs  messages  processed  README.txt  reports  statistics_report.txt  temp  users
+pathik-singh@pathik-singh-LOQ-15IAX9:~/Downloads/project_workspace$ 
+
+
